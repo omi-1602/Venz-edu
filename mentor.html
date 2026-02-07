@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mentor Dashboard | Venz Edu</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <h2>Venz Edu</h2>
+  <a href="index.html">Dashboard</a>
+  <a href="mentor.html" class="active">Mentor Dashboard</a>
+  <a href="student.html">Student Dashboard</a>
+  <a href="#">Courses</a>
+  <a href="#">Messages</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <div class="topbar">
+    <h3>Mentor Dashboard</h3>
+    <span>👨‍🏫 Mentor Mode</span>
+  </div>
+
+  <!-- Overview Cards -->
+  <div class="stats">
+    <div class="card">
+      <p>Total Students</p>
+      <h2>12</h2>
+    </div>
+    <div class="card">
+      <p>At Risk</p>
+      <h2>3</h2>
+    </div>
+    <div class="card">
+      <p>Avg Completion</p>
+      <h2>68%</h2>
+    </div>
+  </div>
+
+  <!-- Student Table -->
+  <h2>My Students</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Progress</th>
+        <th>Last Active</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="studentTable">
+      <!-- JS will inject -->
+    </tbody>
+  </table>
+
+</div>
+
+<script src="js/mentor.js"></script>
+</body>
+</html>

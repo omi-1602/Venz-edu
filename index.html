@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venz Edu — Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+    <a href="index.html" class="global-logo">
+        <img src="assets/logo.png" alt="Venz Edu Logo" class="logo-img">
+    </a>
+
+    <div class="login-container" id="loginContainer">
+        
+        <div class="form-container mentor-container">
+            <form action="#" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+                <div class="login-header">
+                    <div class="icon-box green">👨‍🏫</div>
+                    <h1>Mentor Login</h1>
+                </div>
+                
+                <div class="social-container">
+                    <a href="#" class="social-btn">G</a>
+                </div>
+
+                <span class="sub-text">or use your educator ID</span>
+                <input type="email" placeholder="Educator Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#" class="forgot-pass">Forgot your password?</a>
+                <button class="btn-login green-btn">Sign In as Mentor</button>
+            </form>
+        </div>
+
+        <div class="form-container student-container">
+            <form action="#" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+                <div class="login-header">
+                    <div class="icon-box indigo">🎓</div>
+                    <h1>Student Login</h1>
+                </div>
+
+                <div class="social-container">
+                    <a href="#" class="social-btn">G</a>
+                </div>
+
+                <span class="sub-text">or use your student ID</span>
+                <input type="email" placeholder="Student Email" />
+                <input type="password" placeholder="Password" />
+                
+                <a href="#" class="forgot-pass">Forgot your password?</a>
+                <button class="btn-login indigo-btn">Sign In as Student</button>
+
+                <div class="register-prompt">
+                    <p>New to Venz Edu? <a href="register.html">Create an Account</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Hello, Student!</h1>
+                    <p>Enter your personal details and start your journey with us today.</p>
+                    <button class="ghost-btn" id="showStudent">Student Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with your students, please login with your mentor info.</p>
+                    <button class="ghost-btn" id="showMentor">Mentor Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const showMentorBtn = document.getElementById('showMentor');
+        const showStudentBtn = document.getElementById('showStudent');
+        const container = document.getElementById('loginContainer');
+
+        // Animation Logic
+        showMentorBtn.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        showStudentBtn.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+
+        // --- NEW LOGIN LOGIC ---
+        
+        // 1. Function for Mentor Login
+        function loginAsMentor() {
+            // Save role to LocalStorage
+            localStorage.setItem('userRole', 'mentor');
+            localStorage.setItem('userName', 'Professor Shinde'); // Example Name
+            // Redirect
+            window.location.href = 'dashboard.html';
+        }
+
+        // 2. Function for Student Login
+        function loginAsStudent() {
+            // Save role to LocalStorage
+            localStorage.setItem('userRole', 'student');
+            localStorage.setItem('userName', 'Yash Shinde'); // Example Name
+            // Redirect
+            window.location.href = 'dashboard.html';
+        }
+
+        // Attach these functions to your forms
+        // Find the Mentor Form <button> and add onclick="loginAsMentor()"
+        // Find the Student Form <button> and add onclick="loginAsStudent()"
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venz Edu — Student Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+    <a href="index.html" class="global-logo">
+    <div class="logo-icon">V</div>
+    <span class="logo-text">Venz Edu</span>
+</a>
+
+<a href="index.html" class="global-logo">
+    <img src="assets/logo.png" alt="Venz Edu Logo" class="logo-img">
+</a>
+
+    <div class="register-wrapper">
+        <div class="register-card">
+            <div class="register-visual">
+                <div class="visual-content">
+                    <h2>Join the Future of Learning</h2>
+                    <p>Unlock access to premium mentorship, real-world projects, and a community of expert developers.</p>
+                </div>
+                <div class="visual-overlay"></div>
+            </div>
+
+            <div class="register-form-section">
+                <div class="form-header">
+                    <h1>Create Account</h1>
+                    <p>Student Registration</p>
+                </div>
+
+                <form action="#" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+                    
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="e.g. Yash Shinde" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="student@example.com" required>
+                    </div>
+
+                    <div class="row-inputs">
+                        <div class="input-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Confirm</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="terms-check">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a></label>
+                    </div>
+
+                    <button class="btn-login indigo-btn block-btn">Create Account</button>
+                    
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="index.html" class="link-primary">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

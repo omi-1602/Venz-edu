@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venz Edu — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="app">
+        
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Venz Edu" class="logo-img sidebar-logo-size">
+                </div>
+                <button class="sidebar-close" id="sidebarClose">✕</button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-target="dashboard">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+                
+                <a href="#" class="nav-item" data-target="mentor" id="nav-mentor">
+                    <span class="nav-icon">👨‍🏫</span>
+                    Mentor View
+                </a>
+                
+                <a href="#" class="nav-item" data-target="student" id="nav-student">
+                    <span class="nav-icon">🎓</span>
+                    My Learning
+                </a>
+
+                <a href="#" class="nav-item" data-target="messages">
+                    <span class="nav-icon">💬</span>
+                    Messages
+                </a>
+
+                <a href="#" class="nav-item" data-target="settings">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+                
+                <a href="index.html" class="nav-item" style="margin-top: auto; color: var(--danger);">
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-sm" id="userAvatar">YS</div>
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Yash Shinde</span>
+                        <span class="user-role" id="userRole">Student</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search...">
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="topbar-btn">
+                        🔔
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="topbar-user">
+                        <div class="avatar avatar-sm" id="topbarAvatar">YS</div>
+                        <span class="topbar-username" id="topbarName">Yash</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-container">
+
+                <section id="dashboard" class="page active">
+                    <div class="greeting-banner">
+                        <h2 id="greetingText">Welcome back!</h2>
+                        <p id="greetingSub">You have pending activities to review.</p>
+                        <div class="greeting-actions">
+                            <button class="btn btn-white">View Schedule</button>
+                            <button class="btn btn-white">Resume</button>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon indigo">📚</div>
+                                <span class="stat-trend up">+12%</span>
+                            </div>
+                            <div class="stat-value">14</div>
+                            <div class="stat-label">Active Items</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon green">⏱️</div>
+                                <span class="stat-trend up">+5%</span>
+                            </div>
+                            <div class="stat-value">126h</div>
+                            <div class="stat-label">Total Time</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon amber">🏆</div>
+                            </div>
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">Avg. Score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon blue">⚡</div>
+                                <span class="stat-trend up">+2</span>
+                            </div>
+                            <div class="stat-value">98</div>
+                            <div class="stat-label">Streak Days</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2-1">
+                        <div>
+                            <div class="attention-card warning">
+                                <div class="attention-icon">⚠️</div>
+                                <div class="attention-content">
+                                    <div class="attention-title">Action Required</div>
+                                    <div class="attention-desc">Please review the pending assignments for the Java module.</div>
+                                </div>
+                                <button class="btn btn-xs btn-outline">View</button>
+                            </div>
+
+                            <div class="card section-gap">
+                                <div class="card-header">
+                                    <h3 class="card-title">Weekly Progress</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="learning-path">
+                                        <div class="path-module">
+                                            <div class="path-module-header">
+                                                Core Java Module
+                                                <span class="path-module-status">80%</span>
+                                            </div>
+                                            <div class="path-lesson completed">
+                                                <span class="path-lesson-icon">✅</span>
+                                                <span class="path-lesson-title">Intro to Spring Boot</span>
+                                                <span class="path-lesson-score high">95/100</span>
+                                            </div>
+                                            <div class="path-lesson in-progress">
+                                                <span class="path-lesson-icon">▶️</span>
+                                                <span class="path-lesson-title">REST API Development</span>
+                                                <span class="path-lesson-meta">25 mins left</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="card section-gap">
+                                <div class="card-header">
+                                    <h3 class="card-title">Activity</h3>
+                                    <span class="stat-trend up">High</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-placeholder">
+                                        <div class="bar-chart-simple">
+                                            <div class="bar-wrapper"><div class="bar" style="height: 40%; background: var(--primary-light);"></div><span class="bar-label">M</span></div>
+                                            <div class="bar-wrapper"><div class="bar" style="height: 70%; background: var(--primary);"></div><span class="bar-label">T</span></div>
+                                            <div class="bar-wrapper"><div class="bar" style="height: 55%; background: var(--primary-light);"></div><span class="bar-label">W</span></div>
+                                            <div class="bar-wrapper"><div class="bar" style="height: 90%; background: var(--primary);"></div><span class="bar-label">T</span></div>
+                                            <div class="bar-wrapper"><div class="bar" style="height: 60%; background: var(--primary-light);"></div><span class="bar-label">F</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="mentor" class="page">
+                    <div class="page-header">
+                        <h1>Mentorship Program</h1>
+                        <p>Manage your students and review their progress.</p>
+                    </div>
+                    <div class="filter-bar">
+                        <input type="text" class="search-input" placeholder="Search students...">
+                        <select class="filter-select">
+                            <option>All Batches</option>
+                            <option>Java Core</option>
+                        </select>
+                    </div>
+                    <div class="card">
+                        <div class="data-table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student Name</th>
+                                        <th>Course</th>
+                                        <th>Progress</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-user">
+                                                <div class="avatar avatar-sm">RJ</div>
+                                                <div class="table-user-info">
+                                                    <div class="table-user-name">Rahul Jadhav</div>
+                                                    <div class="table-user-email">rahul@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Full Stack Web Dev</td>
+                                        <td>
+                                            <div class="table-progress">
+                                                <div class="progress-bar sm"><div class="progress-fill green" style="width: 75%"></div></div>
+                                                <span>75%</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                        <td><button class="btn btn-xs btn-outline">Review</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="student" class="page">
+                    <div class="page-header">
+                        <h1>My Courses</h1>
+                        <p>Continue where you left off.</p>
+                    </div>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-thumb">
+                                <div class="course-thumb-placeholder" style="background: #e0e7ff; color: #4f46e5;">☕</div>
+                                <span class="course-status-pill in-progress">In Progress</span>
+                            </div>
+                            <div class="course-card-body">
+                                <h3 class="course-card-title">Mastering Java: From Zero to Hero</h3>
+                                <div class="course-card-mentor">
+                                    <div class="avatar">V</div>
+                                    <span>Venz Academy</span>
+                                </div>
+                                <div class="progress-bar sm course-card-progress">
+                                    <div class="progress-fill indigo" style="width: 65%"></div>
+                                </div>
+                                <div class="course-card-footer">
+                                    <span class="course-card-meta">24/40 Modules</span>
+                                    <button class="btn btn-xs btn-primary">Resume</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="messages" class="page">
+                    <div class="chat-layout">
+                        <div class="chat-sidebar">
+                            <div class="chat-search"><input type="text" placeholder="Search..."></div>
+                            <div class="chat-list">
+                                <div class="chat-item active">
+                                    <div class="avatar avatar-sm">RJ</div>
+                                    <div class="chat-info">
+                                        <div class="chat-name">Rahul Jadhav</div>
+                                        <div class="chat-preview">Sir, I have a doubt in loops...</div>
+                                    </div>
+                                    <div class="chat-meta"><span class="chat-time">10:42 AM</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-window">
+                            <div class="chat-header">
+                                <div class="chat-user-details">
+                                    <div class="avatar avatar-sm">RJ</div>
+                                    <div><h3 class="chat-header-name">Rahul Jadhav</h3><span class="chat-status">Online</span></div>
+                                </div>
+                            </div>
+                            <div class="chat-messages" id="chatFeed">
+                                <div class="message-bubble received"><p>Good morning, Sir! I am stuck on the "Nested Loops" logic.</p><span class="msg-time">10:30 AM</span></div>
+                            </div>
+                            <div class="chat-input-area">
+                                <input type="text" class="chat-input" placeholder="Type a message..." id="messageInput">
+                                <button class="btn btn-primary btn-icon" id="sendMessageBtn">➤</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="settings" class="page">
+                    <div class="page-header"><h1>Settings</h1></div>
+                    <div class="settings-layout">
+                        <nav class="settings-nav">
+                            <button class="settings-nav-item active" data-tab="general">General</button>
+                            <button class="settings-nav-item" data-tab="appearance">Appearance</button>
+                        </nav>
+                        <div class="settings-content">
+                            <div id="general" class="settings-section active">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" id="settingsName" value="Yash Shinde"></div>
+                                        <button class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="appearance" class="settings-section">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="toggle-switch">
+                                            <div><div class="toggle-label">Dark Mode</div></div>
+                                            <button class="toggle" id="darkModeToggle"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div> 
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Retrieve the User Role from LocalStorage (Default to Student if empty)
+            const role = localStorage.getItem('userRole') || 'student';
+            const name = localStorage.getItem('userName') || 'Yash Shinde';
+            
+            console.log("Logged in as:", role);
+
+            // 2. Elements to Update
+            const navMentor = document.getElementById('nav-mentor');
+            const navStudent = document.getElementById('nav-student');
+            const userRoleDisplay = document.getElementById('userRole');
+            const userNameDisplay = document.getElementById('userName');
+            const topbarName = document.getElementById('topbarName');
+            const greetingText = document.getElementById('greetingText');
+
+            // 3. Apply Content based on Role
+            if (role === 'mentor') {
+                // MENTOR VIEW
+                if(navStudent) navStudent.style.display = 'none'; // Hide Student Link
+                if(navMentor) navMentor.style.display = 'flex'; // Show Mentor Link
+                
+                userRoleDisplay.textContent = 'Mentor';
+                greetingText.textContent = `Welcome back, Mentor ${name.split(' ')[0]}!`;
+                
+                // Set default page logic could go here
+            } else {
+                // STUDENT VIEW
+                if(navMentor) navMentor.style.display = 'none'; // Hide Mentor Link
+                if(navStudent) navStudent.style.display = 'flex'; // Show Student Link
+                
+                userRoleDisplay.textContent = 'Student';
+                greetingText.textContent = `Welcome back, ${name.split(' ')[0]}!`;
+            }
+
+            // Update Name Everywhere
+            if(userNameDisplay) userNameDisplay.textContent = name;
+            if(topbarName) topbarName.textContent = name.split(' ')[0];
+        });
+    </script>
+</body>
+</html>

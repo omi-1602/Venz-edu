@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venz Edu — Schedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar" style="width: 80px; text-align: center;">
+            <a href="dashboard.html" class="nav-item active" style="justify-content: center; margin-top: 20px;">
+                <span class="nav-icon" style="font-size: 1.5rem;">←</span>
+            </a>
+        </aside>
+
+        <main class="main-content" style="margin-left: 80px;">
+            <div class="page-container">
+                <div class="page-header">
+                    <h1>Your Schedule</h1>
+                    <p>Upcoming classes and deadlines.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-bottom: 20px; text-align: center; font-weight: bold; color: var(--text-secondary);">
+                            <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;">
+                            <div style="height: 120px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-page);"></div>
+                            <div style="height: 120px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-page);"></div>
+                            
+                            <div style="height: 120px; border: 2px solid var(--primary); border-radius: 8px; padding: 10px; background: #fff;">
+                                <div style="font-weight: 700; margin-bottom: 8px;">12 Feb</div>
+                                <div style="background: var(--primary-bg); color: var(--primary); font-size: 0.7rem; padding: 4px; border-radius: 4px; margin-bottom: 4px;">
+                                    10:00 AM - Java Live
+                                </div>
+                            </div>
+
+                            <div style="height: 120px; border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                                <div style="font-weight: 700; margin-bottom: 8px;">13 Feb</div>
+                                <div style="background: var(--danger-bg); color: var(--danger); font-size: 0.7rem; padding: 4px; border-radius: 4px;">
+                                    Due: Assignment 1
+                                </div>
+                            </div>
+                            
+                            <div style="height: 120px; border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                                <div style="font-weight: 700; margin-bottom: 8px;">14 Feb</div>
+                            </div>
+                             <div style="height: 120px; border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                                <div style="font-weight: 700; margin-bottom: 8px;">15 Feb</div>
+                            </div>
+                             <div style="height: 120px; border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                                <div style="font-weight: 700; margin-bottom: 8px;">16 Feb</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
