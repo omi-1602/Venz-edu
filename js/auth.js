@@ -10,8 +10,16 @@ async function signUp({ email, password, displayName, role }) {
     alert(res.data.message || "Account created");
     return res.data;
   } catch (e) {
-    alert(e.message || "Signup failed");
-    throw e;
+    console.warn("Signup failed; falling back to mock DB:", e?.message || e);
+    try {
+      const res = await window.mockDb.signUpMock({ email, password, displayName, role });
+      alert("Mock signup successful");
+      window.location.href = "dash.html";
+      return res;
+    } catch (e) {
+      alert("Error: " + (e.message || "Signup failed"));
+      throw e;
+    }
   }
 }
 
@@ -25,8 +33,16 @@ async function login({ email, password }) {
     window.location.href = "dash.html";
     return res.data;
   } catch (e) {
-    alert(e.message || "Login failed");
-    throw e;
+    console.warn("Login failed; falling back to mock DB:", e?.message || e);
+    try {
+      const res = await window.mockDb.loginMock({ email, password });
+      alert("Mock login successful");
+      window.location.href = "dash.html";
+      return res;
+    } catch (e) {
+      alert("Error: " + (e.message || "Login failed"));
+      throw e;
+    }
   }
 }
 
@@ -44,8 +60,16 @@ async function googleLogin() {
     window.location.href = "dash.html";
     return res.data;
   } catch (e) {
-    alert(e.message || "Google login failed");
-    throw e;
+    console.warn("Google login failed; using mock:", e?.message || e);
+    try {
+      const res = await window.mockDb.googleLoginMock();
+      alert("Mock Google login successful");
+      window.location.href = "dash.html";
+      return res;
+    } catch (e) {
+      alert("Error: " + (e.message || "Google login failed"));
+      throw e;
+    }
   }
 }
 
@@ -57,8 +81,15 @@ async function resetPassword(email) {
     alert(res.data.message || "Reset link sent");
     return res.data;
   } catch (e) {
-    alert(e.message || "Reset failed");
-    throw e;
+    console.warn("Reset failed; using mock:", e?.message || e);
+    try {
+      const res = await window.mockDb.resetPasswordMock(email);
+      alert(res.message || "Mock reset link generated");
+      return res;
+    } catch (e) {
+      alert("Error: " + (e.message || "Reset failed"));
+      throw e;
+    }
   }
 }
 
