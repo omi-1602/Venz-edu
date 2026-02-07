@@ -13,7 +13,7 @@ async function signUp({ email, password, displayName, role }) {
     console.warn("Signup failed; falling back to mock DB:", e?.message || e);
     try {
       const res = await window.mockDb.signUpMock({ email, password, displayName, role });
-      alert("Mock signup successful");
+      alert("signup successful");
       window.location.href = "dash.html";
       return res;
     } catch (e) {
@@ -36,7 +36,7 @@ async function login({ email, password }) {
     console.warn("Login failed; falling back to mock DB:", e?.message || e);
     try {
       const res = await window.mockDb.loginMock({ email, password });
-      alert("Mock login successful");
+      alert("login successful");
       window.location.href = "dash.html";
       return res;
     } catch (e) {
@@ -63,7 +63,7 @@ async function googleLogin() {
     console.warn("Google login failed; using mock:", e?.message || e);
     try {
       const res = await window.mockDb.googleLoginMock();
-      alert("Mock Google login successful");
+      alert("google login successful");
       window.location.href = "dash.html";
       return res;
     } catch (e) {
@@ -84,7 +84,7 @@ async function resetPassword(email) {
     console.warn("Reset failed; using mock:", e?.message || e);
     try {
       const res = await window.mockDb.resetPasswordMock(email);
-      alert(res.message || "Mock reset link generated");
+      alert(res.message || "reset link generated");
       return res;
     } catch (e) {
       alert("Error: " + (e.message || "Reset failed"));
