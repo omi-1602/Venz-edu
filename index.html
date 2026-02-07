@@ -23,12 +23,12 @@
                 </div>
                 
                 <div class="social-container">
-                    <a href="#" class="social-btn">G</a>
+                    <a href="#" class="social-btn" id="mentorGoogleBtn">G</a>
                 </div>
 
                 <span class="sub-text">or use your educator ID</span>
-                <input type="email" placeholder="Educator Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" id="mentorEmail" placeholder="Educator Email" />
+                <input type="password" id="mentorPassword" placeholder="Password" />
                 <a href="#" class="forgot-pass">Forgot your password?</a>
                 <button class="btn-login green-btn">Sign In as Mentor</button>
             </form>
@@ -42,14 +42,14 @@
                 </div>
 
                 <div class="social-container">
-                    <a href="#" class="social-btn">G</a>
+                    <a href="#" class="social-btn" id="studentGoogleBtn">G</a>
                 </div>
 
                 <span class="sub-text">or use your student ID</span>
-                <input type="email" placeholder="Student Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" id="studentEmail" placeholder="Student Email" />
+                <input type="password" id="studentPassword" placeholder="Password" />
                 
-                <a href="#" class="forgot-pass">Forgot your password?</a>
+                <a href="forgot-password.html" class="forgot-pass">Forgot your password?</a>
                 <button class="btn-login indigo-btn">Sign In as Student</button>
 
                 <div class="register-prompt">
@@ -74,6 +74,17 @@
         </div>
     </div>
 
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-functions-compat.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="js/firebaseConfig.js"></script>
+    <!-- Auth helpers -->
+    <script src="js/auth.js"></script>
+
     <script>
         const showMentorBtn = document.getElementById('showMentor');
         const showStudentBtn = document.getElementById('showStudent');
@@ -88,29 +99,40 @@
             container.classList.remove("right-panel-active");
         });
 
-        // --- NEW LOGIN LOGIC ---
-        
-        // 1. Function for Mentor Login
-        function loginAsMentor() {
-            // Save role to LocalStorage
-            localStorage.setItem('userRole', 'mentor');
-            localStorage.setItem('userName', 'Professor Shinde'); // Example Name
-            // Redirect
-            window.location.href = 'dashboard.html';
+        // --- Firebase Auth wiring ---
+        const mentorEmail = document.getElementById('mentorEmail');
+        const mentorPassword = document.getElementById('mentorPassword');
+        const studentEmail = document.getElementById('studentEmail');
+        const studentPassword = document.getElementById('studentPassword');
+        const mentorGoogleBtn = document.getElementById('mentorGoogleBtn');
+        const studentGoogleBtn = document.getElementById('studentGoogleBtn');
+
+        // Mentor form submit
+        const mentorForm = document.querySelector('.mentor-container form');
+        if (mentorForm) {
+            mentorForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    await login({ email: mentorEmail.value, password: mentorPassword.value });
+                } catch {}
+            });
         }
 
-        // 2. Function for Student Login
-        function loginAsStudent() {
-            // Save role to LocalStorage
-            localStorage.setItem('userRole', 'student');
-            localStorage.setItem('userName', 'Yash Shinde'); // Example Name
-            // Redirect
-            window.location.href = 'dashboard.html';
+        // Student form submit
+        const studentForm = document.querySelector('.student-container form');
+        if (studentForm) {
+            studentForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    await login({ email: studentEmail.value, password: studentPassword.value });
+                } catch {}
+            });
         }
 
-        // Attach these functions to your forms
-        // Find the Mentor Form <button> and add onclick="loginAsMentor()"
-        // Find the Student Form <button> and add onclick="loginAsStudent()"
+        // Google login buttons
+        if (mentorGoogleBtn) mentorGoogleBtn.addEventListener('click', (e) => { e.preventDefault(); googleLogin(); });
+        if (studentGoogleBtn) studentGoogleBtn.addEventListener('click', (e) => { e.preventDefault(); googleLogin(); });
     </script>
+    
 </body>
 </html>
